@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Survey</title>
+
+<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	
+</head>
+<body>
+	<div class="container">
+	
+		<h1>Complete the survey to find your dream match!</h1>
+		<hr>
+		<form role="form" id="survey">
+			<h2>About you</h2>
+			<div class="form-group">
+				<label for="usr">Name: (Required)</label>
+				<input type="text" class="form-control" id="name">
+			</div>
+			<div class="form-group">
+				<label for="pic">URL for Photo: (Required)</label>
+				<input type="text" class="form-control" id="pic">
+				
+			</div>
+			<hr>
+			<h2>Rate how strongly you agree or disagree with the following statements:</h2>
+
+			<div class="row col-lg-10">
+				<h3>Question 1</h3>
+				<h4>I love going to large parties because they are intimate. You have no privacy at small parties.</h4>
+				<div class="form-group col-xs-3">
+					<select class="form-control" id="questionOne">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row col-lg-10">
+				<h3>Question 2</h3>
+				<h4>I'm a carnivore, do not dare serve me Tofu.</h4>
+				<div class="form-group col-xs-3">
+					<select class="form-control" id="questionTwo">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row col-lg-10">
+				<h3>Question 3</h3>
+				<h4>Everyone says this is the golden age of television, but the 1990's really was.</h4>
+				<div class="form-group col-xs-3">
+					<select class="form-control" id="questionThree">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row col-lg-10">
+				<h3>Question 4</h3>
+				<h4>Putting cream and sugar in one's coffee is a sign of weakness!</h4>
+				<div class="form-group col-xs-3">
+					<select class="form-control" id="questionFour">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row col-lg-10">
+				<h3>Question 5</h3>
+				<h4>I'm not one for 5 star resorts. Just give me a backpack, a pocket knife, and a change of socks.</h4>
+				<div class="form-group col-xs-3">
+					<select class="form-control" id="questionFive">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row col-lg-12">
+				<h3>Question 6</h3>
+				<h4>In the words of Dwight Schrute, I would describle myself as "Three words. Hard-working. Alpha male. Jackhammer. Merciless. Insatiable.” </h4>
+				<div class="form-group col-xs-3">
+					<select class="form-control" id="questionSix">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row col-lg-10">
+				<h3>Question 7</h3>
+				<h4>Beatles or Stones? Definitely the Beatles!</h4>
+				<div class="form-group col-xs-3">
+					<select class="form-control" id="questionSeven">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row col-lg-10">
+				<h3>Question 8</h3>
+				<h4>I like a weekend in the country, but city life is the way to live.</h4>
+				<div class="form-group col-xs-3">
+					<select class="form-control" id="questionEight">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row col-lg-10">
+				<h3>Question 9</h3>
+				<h4> Suits are for weddings and funerals, I'm a jeans and tee shirt type of guy.</h4>
+				<div class="form-group col-xs-3">
+					<select class="form-control" id="questionNine">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row col-lg-10">
+				<h3>Question 10</h3>
+				<h4>I'm not one for the air or the water... it's much nicer on solid ground.</h4>
+				<div class="form-group col-xs-3">
+					<select class="form-control" id="questionTen">
+						<option>1 (Strongly Disagree)</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5 (Strongly Agree)</option>
+					</select>
+				</div>
+			</div>
+			
+			<button type="button" class="btn btn-success btn-block" id="submit">Submit</button>
+	
+		</form>
