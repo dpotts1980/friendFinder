@@ -23,7 +23,7 @@
 			</div>
 			<div class="form-group">
 				<label for="pic">URL for Photo: (Required)</label>
-				<input type="text" class="form-control" id="pic">
+				<input type="text" class="form-control" id="picture">
 				
 			</div>
 			<hr>
@@ -33,7 +33,7 @@
 				<h3>Question 1</h3>
 				<h4>I love going to large parties because they are intimate. You have no privacy at small parties.</h4>
 				<div class="form-group col-xs-3">
-					<select class="form-control" id="questionOne">
+					<select class="form-control" id="question1">
 						<option>1 (Strongly Disagree)</option>
 						<option>2</option>
 						<option>3</option>
@@ -47,7 +47,7 @@
 				<h3>Question 2</h3>
 				<h4>I'm a carnivore, do not dare serve me Tofu.</h4>
 				<div class="form-group col-xs-3">
-					<select class="form-control" id="questionTwo">
+					<select class="form-control" id="question2">
 						<option>1 (Strongly Disagree)</option>
 						<option>2</option>
 						<option>3</option>
@@ -61,7 +61,7 @@
 				<h3>Question 3</h3>
 				<h4>Everyone says this is the golden age of television, but the 1990's really was.</h4>
 				<div class="form-group col-xs-3">
-					<select class="form-control" id="questionThree">
+					<select class="form-control" id="question3">
 						<option>1 (Strongly Disagree)</option>
 						<option>2</option>
 						<option>3</option>
@@ -75,7 +75,7 @@
 				<h3>Question 4</h3>
 				<h4>Putting cream and sugar in one's coffee is a sign of weakness!</h4>
 				<div class="form-group col-xs-3">
-					<select class="form-control" id="questionFour">
+					<select class="form-control" id="question4">
 						<option>1 (Strongly Disagree)</option>
 						<option>2</option>
 						<option>3</option>
@@ -89,7 +89,7 @@
 				<h3>Question 5</h3>
 				<h4>I'm not one for 5 star resorts. Just give me a backpack, a pocket knife, and a change of socks.</h4>
 				<div class="form-group col-xs-3">
-					<select class="form-control" id="questionFive">
+					<select class="form-control" id="question5">
 						<option>1 (Strongly Disagree)</option>
 						<option>2</option>
 						<option>3</option>
@@ -103,7 +103,7 @@
 				<h3>Question 6</h3>
 				<h4>In the words of Dwight Schrute, I would describle myself as "Three words. Hard-working. Alpha male. Jackhammer. Merciless. Insatiable.” </h4>
 				<div class="form-group col-xs-3">
-					<select class="form-control" id="questionSix">
+					<select class="form-control" id="question6">
 						<option>1 (Strongly Disagree)</option>
 						<option>2</option>
 						<option>3</option>
@@ -117,7 +117,7 @@
 				<h3>Question 7</h3>
 				<h4>Beatles or Stones? Definitely the Beatles!</h4>
 				<div class="form-group col-xs-3">
-					<select class="form-control" id="questionSeven">
+					<select class="form-control" id="question7">
 						<option>1 (Strongly Disagree)</option>
 						<option>2</option>
 						<option>3</option>
@@ -131,7 +131,7 @@
 				<h3>Question 8</h3>
 				<h4>I like a weekend in the country, but city life is the way to live.</h4>
 				<div class="form-group col-xs-3">
-					<select class="form-control" id="questionEight">
+					<select class="form-control" id="question8">
 						<option>1 (Strongly Disagree)</option>
 						<option>2</option>
 						<option>3</option>
@@ -145,7 +145,7 @@
 				<h3>Question 9</h3>
 				<h4> Suits are for weddings and funerals, I'm a jeans and tee shirt type of guy.</h4>
 				<div class="form-group col-xs-3">
-					<select class="form-control" id="questionNine">
+					<select class="form-control" id="question9">
 						<option>1 (Strongly Disagree)</option>
 						<option>2</option>
 						<option>3</option>
@@ -159,7 +159,7 @@
 				<h3>Question 10</h3>
 				<h4>I'm not one for the air or the water... it's much nicer on solid ground.</h4>
 				<div class="form-group col-xs-3">
-					<select class="form-control" id="questionTen">
+					<select class="form-control" id="question10">
 						<option>1 (Strongly Disagree)</option>
 						<option>2</option>
 						<option>3</option>
@@ -172,3 +172,42 @@
 			<button type="button" class="btn btn-success btn-block" id="submit">Submit</button>
 	
 		</form>
+
+		<!-- adding jquery --><script type="text/javascript">
+		 
+	$('#submit').on("click", function(){
+		var correctEntry;
+		if($("#name").val().trim() === ''){
+			alert('Please enter your name');
+		}
+		else if($("#picture").val().trim() === ''){
+			alert('Field must have a valid link to your photo');
+			console.log("is working");
+		}
+
+		else{
+			//creating empty array which we will push entries into
+			var entryArray = [];
+			//need to loop through the entries
+			for(i = 1; i < 11; i++){
+				entryArray.push(parseInt($('#question' + i).val().substring(0,1)));
+			}
+
+			//creating an object to hold new entries
+			var newEntry =
+			{
+				name: $("#name").val().trim(),
+				photo: $("#picture").val().trim(),
+				scores: entryArray
+			}
+			//records the current location (should work after deployment)
+			var correctURL = window.location.origin;
+			//add the newly entered information to the friend array
+			$.post(currentURL + "/api/friends", newEntry,
+		    function(data){});
+			//
+		}//end of else
+	}//end of on click function
+
+</script>
+</body>

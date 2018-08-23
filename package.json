@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/dpotts1980/friendFinder/issues"
   },
-  "homepage": "https://github.com/dpotts1980/friendFinder#readme"
+  "homepage": "https://github.com/dpotts1980/friendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "nodemon": "^1.18.3",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {}
 }

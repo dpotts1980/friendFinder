@@ -8,7 +8,7 @@ var friends = [
 		photo: 'https://goo.gl/images/qcjveY',
 		scores: [4, 1, 4, 5, 1, 1, 1, 5, 1, 1]
 	},{
-		name: "Jennifer Lawrence,
+		name: "Jennifer Lawrence",
 		photo: 'https://goo.gl/images/2eErSd',
 		scores: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
 	},{

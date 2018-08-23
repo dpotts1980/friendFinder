@@ -24,14 +24,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 //Routing
 //=============================================================
 
-require('./app/routing/apiRoutes.js')(app); 
-require('./app/routing/htmlRoutes.js')(app);
+require(path.join(__dirname, './app/routing/apiRoutes.js'))(app); 
+require(path.join(__dirname, './app/routing/htmlRoutes.js'))(app);
 // =============================================================================
 // LISTENER
 // The below code effectively "starts" our server
 // =============================================================================
-
-app.listen(PORT, || 8080, function() {
+app.listen(PORT, function() {
     console.log("App listening on PORT: " + PORT);
   });
+  
   
