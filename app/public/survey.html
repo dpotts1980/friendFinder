@@ -174,7 +174,7 @@
 		</form>
 
 				<!-- Modal -->
-				<div class="modal fade" id="friend-modal" role="dialog">
+				<div class="modal fade" id="match-modal" role="dialog">
 					<div class="modal-dialog">
 					
 					  <!-- Modal content-->
@@ -186,7 +186,7 @@
 						<div class="modal-body">
 						</div>
 						<div class="modal-footer">
-						  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
 						</div>
 					  </div>
 					  
@@ -200,7 +200,9 @@
 		<!-- adding jquery -->
 		<script type="text/javascript">
 		 
-	$('#submit').on("click", function(){
+	$('#submit').on("click", function(event){
+		event.preventDefault();
+
 		var correctEntry;
 		if($("#name").val().trim() === ''){
 			alert('Please enter your name');
@@ -228,7 +230,7 @@
 			//records the current location (should work after deployment)
 			var correctURL = window.location.origin;
 			//add the newly entered information to the friend array
-			$.post(currentURL + "/api/friends", newEntry,
+			$.post(correctURL + "/api/friends", newEntry,
 		    function(data){});
 			//looking into our array of potential friends to see best match//
 			$.ajax({url: correctURL +  "/api/friends", method: "GET"}).done(function(res){
@@ -255,10 +257,23 @@
 					diffArr = [];
 				}
 			}
+					//setting up modal display//
+					var nameOfFriend = "<h4>" + topMatch.name + "<h4>";
+					var pictureOfFriend = '<img width="300px" src=' + topMatch.photo + '>';
+					//showing the modal//
+					$('#match-modal').modal('show');
+					$('#match-modal h4').html(nameOfFriend);
+					$('.modal-body').html(pictureOfFriend);
+					//clear the entries
+				    $('#survey')[0].reset();
 
 			});//end of ajax
-		}//end of else
-	}//end of on click function
 
+		}//end of else
+		return false;
+	});
+function add(a, b){
+	return a+b;
+};
 </script>
 </body>
