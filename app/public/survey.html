@@ -173,7 +173,8 @@
 	
 		</form>
 
-		<!-- adding jquery --><script type="text/javascript">
+		<!-- adding jquery -->
+		<script type="text/javascript">
 		 
 	$('#submit').on("click", function(){
 		var correctEntry;
@@ -205,7 +206,33 @@
 			//add the newly entered information to the friend array
 			$.post(currentURL + "/api/friends", newEntry,
 		    function(data){});
-			//
+			//looking into our array of potential friends to see best match//
+			$.ajax({url: correctURL +  "/api/friends", method: "GET"}).done(function(res){
+					var topMatch;
+					var currentMatch = 100;
+					var diffArr = [];
+			///looping through the friends to see matches//
+			for (idx = 0; idx < res.length - 1; idx++) {
+				//comparing the values from the survey and pushing the absolute value of differences to diffArr
+				for(j = 0; j < 10; j++) {
+					var immediateDiff = newEntry.scores[j] - res[idx].scores[j];
+					diffArr.push(Math.abs(immediateDiff));
+				}
+				//adding up all the values in the array and making a single value that represents the difference between potential match and current inputs//
+				var diff = diffArr.reduce(add, 0);
+				//if the difference is less then previous entries, push the current entry to the best match/
+				if(diff < currentMatch) {
+					topMatch = res[idx];
+					currentMatch = diff;
+					diffArr = [];
+
+				}
+				else{
+					diffArr = [];
+				}
+			}
+
+			});//end of ajax
 		}//end of else
 	}//end of on click function
 
